@@ -90,16 +90,14 @@ function Border(props) {
     
     const code = props.code;
     console.log(code)
-    const searchBorderName = () => {
+    
+    useEffect(() => {
         axios({
             method: 'get',
             url: `https://restcountries.eu/rest/v2/alpha/${code}?fields=name`
         }).then(r => {
             setBorder(r.data.name)
         }).catch(e => console.log(e))
-    }
-    useEffect(() => {
-        searchBorderName();
     },[code])
     return (<div>
         <p className="button px-3 py-2">{border}</p>
