@@ -35,4 +35,10 @@
           backdrop-filter: blur(50px);
   width: 100%;
 }
+
+.bg-dark_theme {
+  background: #00000087;
+  color: white;
+  border: none;
+}
 /*# sourceMappingURL=style.css.map */

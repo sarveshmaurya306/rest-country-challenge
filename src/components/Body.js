@@ -1,5 +1,5 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+
+import React from 'react'
 import '../style/style.css'
 import {useHistory} from 'react-router-dom'
 
@@ -12,7 +12,7 @@ function Body(props) {
 
     const data = props.CountryData;
     return (
-        <div>
+        <div style={{minHeight:'100vh'}}>
             {
                 !data ? '' : <div className="container d-flex justify-content-around" style={{width:'100vw', flexWrap:'wrap'}}>
                     {

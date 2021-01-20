@@ -3,7 +3,8 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import '../style/style.css'
 
-function Detail() {
+function Detail(props) {
+    const [theme, ]= props.theme
     const history = useHistory();
     var select;
     try {
@@ -27,11 +28,11 @@ function Detail() {
         history.push('/')
     }
     return (
-        <div className="container">
+        <div className="container" style={{ minHeight: '100vh' }}>
             {
                 !contry ? 'Loading...' : <div>
                     <div style={{ paddingTop: '6rem' }} className="pb-5">
-                        <button onClick={handleBack} className=" button px-3 py-2" style={{ width: '10rem' }} ><i className="fa fa-long-arrow-left"></i>&nbsp;&nbsp;Back</button>
+                        <button onClick={handleBack} className={theme === 'light' ? "button px-3 py-2" : "bg-dark_theme button px-3 py-2"} style={{ width: '10rem' }} ><i className="fa fa-long-arrow-left"></i>&nbsp;&nbsp;Back</button>
                     </div>
                     <div className="row" >
                         <div className="col-12 col-lg-5"><img className="img-fluid" src={contry.flag} alt="flag" /></div>
@@ -89,7 +90,6 @@ function Border(props) {
     const [border, setBorder] = useState('');
     
     const code = props.code;
-    console.log(code)
     
     useEffect(() => {
         axios({

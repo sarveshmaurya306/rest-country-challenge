@@ -1,25 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style/style.css'
 import Header from './components/Header'
 import Specs from './components/Specs'
 import Detail from './components/Detail'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 
 function App() {
+    const theme = useState('light');
     return (
-        <Router>
-            <Header />
-            <Switch>
-                <Route exact path="/" >
-                    <Specs /> 
-                </Route>
+        <div className={theme[0]==='light'?'':'bg-dark text-light'}>
+            <Router>
+                <Header Theme={theme} />
+                <Switch>
+                    <Route exact path="/" >
+                        <Specs Theme={theme} />
+                    </Route>
 
-                <Route exact path="/detail">
-                    {/* <Header /> */}
-                    <Detail/>
-                </Route>
-            </Switch>
-        </Router>
+                    <Route exact path="/detail" >
+                        <Detail theme={theme}/>
+                    </Route>
+                </Switch>
+            </Router>
+        </div>
     )
 }
 

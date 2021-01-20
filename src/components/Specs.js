@@ -3,13 +3,13 @@ import '../style/style.css'
 import axios from 'axios'
 import Body from './Body'
 
-function Specs() {
-
-
+function Specs(props) {
+    const [theme, ] = props.Theme;
+    
     const [data, setData] = useState('')
     const [filter, setFilter] = useState('')
     const [search, setSearch] = useState('');
-
+    console.log(theme)
     const callMore = (def='', tempSearch='') => {
         var url;
         if (!tempSearch) {
@@ -53,13 +53,14 @@ function Specs() {
                         paddingTop: '6rem',
                         paddingBottom: '3rem'
                     }}>
-                        <input className="p-3 input_style" type="text" placeholder="Search for a country..." style={{
+                        {/* "p-3 input_style" */}
+                        <input className={theme === 'light' ? ' p-3 form-control' : 'bg-dark_theme text-light p-3 '} type="text" placeholder="Search for a country..." style={{
                             width: '40%',
                         }} onChange={e=>setSearch(e.target.value)}/>
-                        <select className="p-3 input_style" onChange={e=>setFilter(e.target.value)}>
+                        <select className={theme === 'light' ? ' p-3' : 'bg-dark_theme text-light p-3 '} onChange={e=>setFilter(e.target.value)}>
                             <option value=''>Filter by Region</option>
                             <option value="africa">Africa</option>
-                            <option value="america">America</option>
+                            <option value="americas">America</option>
                             <option value="asia">Asia</option>
                             <option value="europe">Europe</option>
                             <option value="oceania">Oceania</option>
