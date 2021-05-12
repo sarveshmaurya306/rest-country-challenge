@@ -6,7 +6,9 @@ import Detail from './components/Detail'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
-function App({props}) {
+function App() {
+    
+    const theme = useState('light');
     return (
         <div className={theme[0]==='light'?'':'bg-dark text-light'}>
             <Router>
